@@ -8,6 +8,10 @@
          version="3.1">
   <display-name>Archetype Created Web Application</display-name>
 
+  <!--spring 监听器 默认加载 web_info 下的applicationContext.xml -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 
   <!--配置解决post的中文乱码的过滤器-->
   <filter>
@@ -22,6 +26,12 @@
     <filter-name>characterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+  <!--  配置applicationContext.xml 对象-->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
 
   <!-- SpringMVC的核心控制器 本质上也是servlet -->
   <servlet>
